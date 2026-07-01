@@ -8,5 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+.vscode/
+.ipynb_checkpoints/
+~$*.xlsx
 data/raw/
 data/processed/
