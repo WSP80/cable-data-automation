@@ -1,4 +1,7 @@
-# Python-generated files
+# ===========================
+# Python
+# ===========================
+
 __pycache__/
 *.py[oc]
 build/
@@ -6,10 +9,39 @@ dist/
 wheels/
 *.egg-info
 
-# Virtual environments
+
+# ===========================
+# Virtual Environment
+# ===========================
+
 .venv
+
+
+# ===========================
+# Visual Studio Code
+# ===========================
+
 .vscode/
+
+
+# ===========================
+# Jupyter Notebook
+# ===========================
+
 .ipynb_checkpoints/
+
+
+# ===========================
+# Excel Temporary Files
+# ===========================
+
 ~$*.xlsx
+~$*.xlsm
+
+
+# ===========================
+# Project Data
+# ===========================
+
 data/raw/
 data/processed/
