@@ -1,0 +1,32 @@
+{
+    "ATOMKIP-KU": {
+        "parser": "atomkip",
+        "generator": "atomkip",
+        "cable_family": "ATOMKIP-KU",
+        "supported_voltages": [300, 500, 660, 690]
+    },
+
+    "MK": {
+        "parser": "mk",
+        "generator": "mk",
+        "cable_family": "MK",
+        "supported_voltages": [300, 500, 660],
+        "voltage_equivalents": {"690": 660}
+    },
+
+    "TOFLEX": {
+        "parser": "toflex",
+        "generator": "toflex",
+        "cable_family": "TOFLEX-KU",
+        "supported_voltages": [300, 500, 660],
+        "voltage_equivalents": {"690": 660}
+    },
+
+    "CONFLEX": {
+        "parser": "conflex",
+        "generator": "conflex",
+        "cable_family": "CONFLEX",
+        "supported_voltages": [300, 500, 660],
+        "voltage_equivalents": {"690": 660}
+    }
+}

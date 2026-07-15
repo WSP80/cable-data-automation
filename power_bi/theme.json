@@ -1,0 +1,54 @@
+{
+  "name": "Cable Price Intelligence",
+  "dataColors": [
+    "#2563EB",
+    "#16A34A",
+    "#D97706",
+    "#DC2626",
+    "#0891B2",
+    "#6B7280",
+    "#CA8A04",
+    "#0F766E"
+  ],
+  "background": "#F7F8FA",
+  "foreground": "#20242B",
+  "tableAccent": "#2563EB",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "fontFamily": "Segoe UI",
+            "fontSize": 12,
+            "fontColor": {
+              "solid": {
+                "color": "#20242B"
+              }
+            }
+          }
+        ],
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#D9DEE7"
+              }
+            },
+            "radius": 4
+          }
+        ]
+      }
+    }
+  }
+}

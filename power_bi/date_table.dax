@@ -1,0 +1,26 @@
+Date =
+VAR MinimumDate =
+    MINX(
+        FILTER(
+            bi_offer_features,
+            NOT ISBLANK(bi_offer_features[invoice_date])
+        ),
+        bi_offer_features[invoice_date]
+    )
+VAR MaximumDate =
+    MAXX(
+        FILTER(
+            bi_offer_features,
+            NOT ISBLANK(bi_offer_features[invoice_date])
+        ),
+        bi_offer_features[invoice_date]
+    )
+RETURN
+ADDCOLUMNS(
+    CALENDAR(MinimumDate, MaximumDate),
+    "Year", YEAR([Date]),
+    "Month Number", MONTH([Date]),
+    "Month", FORMAT([Date], "MMM"),
+    "Year Month", FORMAT([Date], "YYYY-MM"),
+    "Quarter", "Q" & FORMAT([Date], "Q")
+)

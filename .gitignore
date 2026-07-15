@@ -4,6 +4,7 @@
 
 __pycache__/
 *.py[oc]
+.pytest_cache/
 build/
 dist/
 wheels/
@@ -44,4 +45,17 @@ wheels/
 # ===========================
 
 data/raw/
+data/archiv/
+data/archive/
 data/processed/
+data/ucm/
+data/usm/
+
+# Generated model artifacts and prediction batches
+artifacts/models/*.joblib
+data/prediction_input/
+data/prediction_output/
+data/database/
+reports/tables/
+reports/*.log
+.env

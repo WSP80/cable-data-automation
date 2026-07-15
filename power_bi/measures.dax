@@ -1,0 +1,168 @@
+Total Offers =
+DISTINCTCOUNT(bi_offer_features[offer_id])
+
+Training Offers =
+CALCULATE(
+    [Total Offers],
+    bi_offer_features[dataset_role] = "training"
+)
+
+Prediction Input Offers =
+CALCULATE(
+    [Total Offers],
+    bi_offer_features[dataset_role] = "prediction"
+)
+
+Priced Offers =
+CALCULATE(
+    [Total Offers],
+    NOT ISBLANK(bi_offer_features[unit_price_excl_vat])
+)
+
+Average Actual Price =
+AVERAGE(bi_offer_features[unit_price_excl_vat])
+
+Median Actual Price =
+MEDIAN(bi_offer_features[unit_price_excl_vat])
+
+Average Price per Copper mm2 =
+AVERAGE(bi_offer_features[price_per_copper_mm2])
+
+Active Models =
+CALCULATE(
+    DISTINCTCOUNT(bi_model_runs[cable_family]),
+    bi_model_runs[is_active] = TRUE()
+)
+
+Average Active Model MAPE =
+CALCULATE(
+    AVERAGE(bi_model_runs[mape]),
+    bi_model_runs[is_active] = TRUE()
+)
+
+Average Active Model MAE =
+CALCULATE(
+    AVERAGE(bi_model_runs[mae]),
+    bi_model_runs[is_active] = TRUE()
+)
+
+Average Active Model R2 =
+CALCULATE(
+    AVERAGE(bi_model_runs[r2]),
+    bi_model_runs[is_active] = TRUE()
+)
+
+Total Predictions =
+COUNTROWS(bi_predictions)
+
+Successful Predictions =
+CALCULATE(
+    [Total Predictions],
+    bi_predictions[prediction_status] = "ok"
+)
+
+Prediction Success Rate =
+DIVIDE(
+    [Successful Predictions],
+    [Total Predictions]
+)
+
+Compatible Predictions =
+CALCULATE(
+    [Total Predictions],
+    bi_predictions[construction_compatible] = TRUE()
+)
+
+Average Predicted Price =
+AVERAGE(bi_predictions[predicted_price])
+
+Average Prediction Error =
+AVERAGE(bi_predictions[prediction_error])
+
+Production MAPE =
+100 * AVERAGE(bi_predictions[absolute_percentage_error])
+
+Voltage Equivalence Uses =
+CALCULATE(
+    [Total Predictions],
+    bi_predictions[voltage_equivalence_applied] = TRUE()
+)
+
+Export Runs =
+CALCULATE(
+    DISTINCTCOUNT(bi_predictions[prediction_run_id]),
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
+
+Export History Source Offers =
+CALCULATE(
+    DISTINCTCOUNT(bi_predictions[offer_id]),
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
+
+Export History Predictions =
+CALCULATE(
+    COUNTROWS(bi_predictions),
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
+
+Export History Successful Predictions =
+CALCULATE(
+    [Export History Predictions],
+    bi_predictions[prediction_status] = "ok"
+)
+
+Export History Prediction Success Rate =
+DIVIDE(
+    [Export History Successful Predictions],
+    [Export History Predictions]
+)
+
+Export History Compatible Predictions =
+CALCULATE(
+    [Export History Predictions],
+    bi_predictions[construction_compatible] = TRUE()
+)
+
+Current Run Source Offers =
+CALCULATE(
+    DISTINCTCOUNT(bi_predictions[offer_id]),
+    bi_predictions[prediction_run_rank] = 1,
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
+
+Current Run Predictions =
+CALCULATE(
+    COUNTROWS(bi_predictions),
+    bi_predictions[prediction_run_rank] = 1,
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
+
+Current Run Successful Predictions =
+CALCULATE(
+    COUNTROWS(bi_predictions),
+    bi_predictions[prediction_run_rank] = 1,
+    bi_predictions[prediction_status] = "ok",
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
+
+Current Run Prediction Success Rate =
+DIVIDE(
+    [Current Run Successful Predictions],
+    [Current Run Predictions]
+)
+
+Current Run Compatible Predictions =
+CALCULATE(
+    COUNTROWS(bi_predictions),
+    bi_predictions[prediction_run_rank] = 1,
+    bi_predictions[construction_compatible] = TRUE(),
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
+
+Current Run Average Predicted Price =
+CALCULATE(
+    AVERAGE(bi_predictions[predicted_price]),
+    bi_predictions[prediction_run_rank] = 1,
+    REMOVEFILTERS(bi_offer_features[dataset_role])
+)
