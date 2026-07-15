@@ -1,0 +1,9 @@
+*.pq linguist-language=PowerQuery
+*.bas linguist-language=VBA
+*.cls linguist-language=VBA
+*.frm linguist-language=VBA
+
+*.pbix linguist-vendored=true
+*.xlsm linguist-vendored=true
+uv.lock linguist-generated=true
+data/demo/raw/*.csv linguist-vendored=true

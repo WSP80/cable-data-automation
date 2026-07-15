@@ -52,7 +52,7 @@ app/                 Streamlit prediction UI
 config/              Manufacturer configuration and feature dictionaries
 docs/                Runbooks for execution, Power BI, and GitHub sync
 power_bi/            Power BI report, theme, and DAX assets
-power_query/         Excel Power Query / VBA export workbook
+power_query/         Excel ETL workbook plus exported Power Query and VBA source
 scripts/             Pipeline commands for export, training, and prediction
 sql/                 PostgreSQL views for Power BI
 src/                 Parsers, generators, UCM models, database, and pricing code
@@ -78,6 +78,11 @@ reports/tables/
 Commercial source data must not be committed. The local folders `data/raw/` and
 `data/archiv/` are ignored by Git and should remain private. Only anonymized demo
 files from `data/demo/raw/` are intended for GitHub.
+
+The binary Excel workbook is kept in `power_query/Invoice_ETL.xlsm` for local
+execution. Its readable source code is exported separately to `power_query/m/`
+for Power Query M and `power_query/vba/` for VBA, so the ETL logic can be
+reviewed directly in GitHub.
 
 Before publishing, always review staged files with:
 

@@ -1,0 +1,1 @@
+#"Beispieldatei (3)" meta [IsParameterQuery=true, BinaryIdentifier=#"Beispieldatei (3)", Type="Binary", IsParameterQueryRequired=true]
