@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "33952576a19c7c1a2f49",
+  "position": {
+    "x": 710,
+    "y": 162.85714285714286,
+    "z": 4000,
+    "height": 375.71428571428572,
+    "width": 490.00000000000006,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_offer_features"
+                    }
+                  },
+                  "Property": "cable_family"
+                }
+              },
+              "queryRef": "bi_offer_features.cable_family",
+              "nativeQueryRef": "cable_family",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_offer_features"
+                        }
+                      },
+                      "Property": "unit_price_excl_vat"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(bi_offer_features.unit_price_excl_vat)",
+              "nativeQueryRef": "Durchschnitt von unit_price_excl_vat"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "bi_offer_features"
+                  }
+                },
+                "Property": "cable_family"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Avg Unit Price'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cable Family'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Unit Price by Cable Family'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,145 @@
+table bi_model_runs
+	lineageTag: 80d18ba6-7bc3-4eca-8e7d-4b6fa84d8f90
+
+	column model_run_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5de1338b-868b-4ebf-aeea-7d3fa0183d91
+		summarizeBy: none
+		sourceColumn: model_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column run_group_id
+		dataType: string
+		lineageTag: 33cc1990-7626-47e5-bc24-c11813a6f743
+		summarizeBy: none
+		sourceColumn: run_group_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cable_family
+		dataType: string
+		lineageTag: 8eb4e7a8-9b84-489e-b474-363597e7d278
+		summarizeBy: none
+		sourceColumn: cable_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_type
+		dataType: string
+		lineageTag: 8fbdeb95-26ed-4952-9ec9-49f8650fb5bd
+		summarizeBy: none
+		sourceColumn: model_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column artifact_path
+		dataType: string
+		lineageTag: 65b3460b-71af-41a5-9aa3-14894180fa53
+		summarizeBy: none
+		sourceColumn: artifact_path
+
+		annotation SummarizationSetBy = Automatic
+
+	column training_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a0e510d-2587-4f20-801e-553d3c6a96db
+		summarizeBy: sum
+		sourceColumn: training_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column test_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: f336318a-c792-44cf-a11a-a7ccce566b57
+		summarizeBy: sum
+		sourceColumn: test_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column mae
+		dataType: double
+		lineageTag: 070172d4-845f-4951-8e60-e1776d041228
+		summarizeBy: sum
+		sourceColumn: mae
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mape
+		dataType: double
+		lineageTag: 12c56b4e-2611-41ff-b3f0-6b8cd4feac1a
+		summarizeBy: sum
+		sourceColumn: mape
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rmse
+		dataType: double
+		lineageTag: 32f77947-aa6a-4bba-b2ba-2993531367d6
+		summarizeBy: sum
+		sourceColumn: rmse
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column r2
+		dataType: double
+		lineageTag: d1f8187d-ee3c-4fe9-a5ba-65627562dfc2
+		summarizeBy: sum
+		sourceColumn: r2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f11c8398-b0bb-4c67-b7ef-e9cfddf4872d
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column trained_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 847cc62a-889f-40bd-9589-4abd72fd4108
+		summarizeBy: none
+		sourceColumn: trained_at
+
+		variation Variation
+			isDefault
+			relationship: 723fd382-5e53-49cf-9837-d914bb29dcf3
+			defaultHierarchy: LocalDateTable_4377415a-b4b1-485a-8326-af1c6de692d9.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+	column family_run_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a982e86-4815-4fc6-8d92-2905f5a93972
+		summarizeBy: sum
+		sourceColumn: family_run_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bi_model_runs = m
+		mode: import
+		source =
+				let
+				  Quelle = PostgreSQL.Database("localhost:5432", "cable_intelligence"),
+				  #"Navigation 1" = Quelle{[Schema = "public", Item = "bi_model_runs"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

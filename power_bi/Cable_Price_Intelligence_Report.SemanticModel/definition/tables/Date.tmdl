@@ -1,0 +1,88 @@
+table Date
+	lineageTag: bf92bece-6644-4065-8934-dac732f45664
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 24f4fffb-b435-485f-9c98-722a9c5f4e09
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: f5d3eea8-9e86-422a-a740-93a0d56f965f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: 0a123ce1-f1c4-42db-8851-43cb3e7b49e4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 9b51d5b8-e865-4f55-9f41-1ff42147aeef
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		lineageTag: 4eb5607a-0b10-492a-8ab9-c3b61dbb9dde
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: e28501fb-2f72-4dba-bf29-e50a26b7effc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = calculated
+		mode: import
+		source =
+				
+				VAR MinimumDate =
+				    MINX(
+				        FILTER(
+				            bi_offer_features,
+				            NOT ISBLANK(bi_offer_features[invoice_date])
+				        ),
+				        bi_offer_features[invoice_date]
+				    )
+				VAR MaximumDate =
+				    MAXX(
+				        FILTER(
+				            bi_offer_features,
+				            NOT ISBLANK(bi_offer_features[invoice_date])
+				        ),
+				        bi_offer_features[invoice_date]
+				    )
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(MinimumDate, MaximumDate),
+				    "Year", YEAR([Date]),
+				    "Month Number", MONTH([Date]),
+				    "Month", FORMAT([Date], "MMM"),
+				    "Year Month", FORMAT([Date], "YYYY-MM"),
+				    "Quarter", "Q" & FORMAT([Date], "Q")
+				)
+
+	annotation PBI_Id = cbd7832573594f5ba2964cd424a38452
+

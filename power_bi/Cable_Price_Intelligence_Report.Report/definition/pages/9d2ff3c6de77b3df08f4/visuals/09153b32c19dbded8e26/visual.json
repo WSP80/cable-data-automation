@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "09153b32c19dbded8e26",
+  "position": {
+    "x": 830,
+    "y": 411.42857142857144,
+    "z": 6000,
+    "height": 308.57142857142861,
+    "width": 365.71428571428572,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_predictions"
+                    }
+                  },
+                  "Property": "compatibility_differences"
+                }
+              },
+              "queryRef": "bi_predictions.compatibility_differences",
+              "nativeQueryRef": "Compatibility Differences",
+              "displayName": "Compatibility Differences"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "bi_predictions"
+                  }
+                },
+                "Property": "compatibility_differences"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "343.28570923274617D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "bi_predictions.compatibility_differences"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Cable_Price_Intelligence_Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "27b9e307-faa9-46f0-a4ab-383e15eea538"
+  }
+}

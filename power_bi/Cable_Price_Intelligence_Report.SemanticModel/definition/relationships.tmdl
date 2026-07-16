@@ -1,0 +1,27 @@
+relationship 723fd382-5e53-49cf-9837-d914bb29dcf3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: bi_model_runs.trained_at
+	toColumn: LocalDateTable_4377415a-b4b1-485a-8326-af1c6de692d9.Date
+
+relationship 66877d31-2cc7-4a0a-9a75-46c331d48e78
+	joinOnDateBehavior: datePartOnly
+	fromColumn: bi_offer_features.offer_created_at
+	toColumn: LocalDateTable_d2eeb852-1793-42f5-b443-8d0d64c87060.Date
+
+relationship 39870fc9-043b-4536-9143-7d6b450f2254
+	joinOnDateBehavior: datePartOnly
+	fromColumn: bi_predictions.predicted_at
+	toColumn: LocalDateTable_58a3b535-980d-4c96-9a0f-33d293fe93fb.Date
+
+relationship AutoDetected_873ec034-d388-47c0-87fd-cacd356667f0
+	fromColumn: bi_predictions.model_run_id
+	toColumn: bi_model_runs.model_run_id
+
+relationship AutoDetected_94c13e95-fbdb-4d42-9e9a-700d50ea56c1
+	fromColumn: bi_predictions.offer_id
+	toColumn: bi_offer_features.offer_id
+
+relationship 111011ce-7d5c-4a23-dc62-8e1aa1d776d2
+	fromColumn: bi_offer_features.invoice_date
+	toColumn: Date.Date
+

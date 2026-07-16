@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "cd527ad1571d2ebe4a9f",
+  "position": {
+    "x": 454.28571428571428,
+    "y": 411.4285714285715,
+    "z": 5000,
+    "height": 308.57142857142861,
+    "width": 375.71428571428572,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_predictions"
+                    }
+                  },
+                  "Property": "prediction_reason"
+                }
+              },
+              "queryRef": "bi_predictions.prediction_reason",
+              "nativeQueryRef": "Prediction Reason",
+              "displayName": "Prediction Reason"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "bi_predictions"
+                  }
+                },
+                "Property": "prediction_reason"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "352.2857119557862D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "bi_predictions.prediction_reason"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

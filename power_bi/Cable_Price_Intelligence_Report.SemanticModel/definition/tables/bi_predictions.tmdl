@@ -1,0 +1,471 @@
+table bi_predictions
+	lineageTag: 7d416e43-d34c-40cc-a312-846f8d4b9dd5
+
+	column prediction_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b262fe6b-bbbc-458a-b01b-c536a06d8f24
+		summarizeBy: sum
+		sourceColumn: prediction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column offer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f059f5a7-7da8-4969-8b52-0624111caf3b
+		summarizeBy: none
+		sourceColumn: offer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_run_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d1fa06e1-365f-4ffe-a0b2-a395fa4db4f9
+		summarizeBy: none
+		sourceColumn: model_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_manufacturer
+		dataType: string
+		lineageTag: 6ca16944-2f99-4fbc-a3d1-b161a19cb765
+		summarizeBy: none
+		sourceColumn: target_manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_cable_family
+		dataType: string
+		lineageTag: 117fde76-74b4-4064-baa1-43d87072a68a
+		summarizeBy: none
+		sourceColumn: target_cable_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column generated_designation
+		dataType: string
+		lineageTag: 1005b35a-1f7f-4f37-b85d-7e51bdb28c1f
+		summarizeBy: none
+		sourceColumn: generated_designation
+
+		annotation SummarizationSetBy = Automatic
+
+	column construction_compatible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bc260e3e-8ddf-4e57-8e5e-16aa67d14a05
+		summarizeBy: none
+		sourceColumn: construction_compatible
+
+		annotation SummarizationSetBy = Automatic
+
+	column compatibility_differences
+		dataType: string
+		lineageTag: 70878187-0f6e-4733-928a-c332c4d31155
+		summarizeBy: none
+		sourceColumn: compatibility_differences
+
+		annotation SummarizationSetBy = Automatic
+
+	column effective_target_voltage_v
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b751ef8-acec-4119-b018-d2cde95e1d4a
+		summarizeBy: sum
+		sourceColumn: effective_target_voltage_v
+
+		annotation SummarizationSetBy = Automatic
+
+	column voltage_equivalence_applied
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6e8ae014-bc87-4e8a-ac55-de9d92e44205
+		summarizeBy: none
+		sourceColumn: voltage_equivalence_applied
+
+		annotation SummarizationSetBy = Automatic
+
+	column predicted_price
+		dataType: double
+		lineageTag: 9bb2ffce-d534-4a4e-b552-4052e2a5df28
+		summarizeBy: sum
+		sourceColumn: predicted_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prediction_status
+		dataType: string
+		lineageTag: af01144b-0ed7-4095-8511-6f77d37a975c
+		summarizeBy: none
+		sourceColumn: prediction_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column prediction_reason
+		dataType: string
+		lineageTag: 2863475b-62ed-43cc-971d-8d19cef0bdb0
+		summarizeBy: none
+		sourceColumn: prediction_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column prediction_model_type
+		dataType: string
+		lineageTag: adb872fc-2ca3-45ab-abdd-0286525a2bf0
+		summarizeBy: none
+		sourceColumn: prediction_model_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column comparable_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: 197283b6-4c08-4d99-a954-eb04456b974b
+		summarizeBy: sum
+		sourceColumn: comparable_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column predicted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dd42f43b-7b27-4e58-9024-661c8b28dd76
+		summarizeBy: none
+		sourceColumn: predicted_at
+
+		variation Variation
+			isDefault
+			relationship: 39870fc9-043b-4536-9143-7d6b450f2254
+			defaultHierarchy: LocalDateTable_58a3b535-980d-4c96-9a0f-33d293fe93fb.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_dataset
+		dataType: string
+		lineageTag: e077940e-0062-47d4-a2fb-ae2b27157e20
+		summarizeBy: none
+		sourceColumn: source_dataset
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_row_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 5375c8f1-e69b-44c1-95a5-cfbe1edcde93
+		summarizeBy: sum
+		sourceColumn: source_row_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_product_description
+		dataType: string
+		lineageTag: 40a11319-72c5-4c7d-8d33-136ea1facb7f
+		summarizeBy: none
+		sourceColumn: source_product_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_price
+		dataType: double
+		lineageTag: 87e3afc8-cde2-444f-97c1-bb0ce3fc76e9
+		summarizeBy: sum
+		sourceColumn: actual_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column source_cable_family
+		dataType: string
+		lineageTag: 01befd11-19c6-4254-9676-4b548d9d0222
+		summarizeBy: none
+		sourceColumn: source_cable_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column core_groups
+		dataType: int64
+		formatString: 0
+		lineageTag: 02e9183b-10ac-41c7-ac8a-cc0bf63dfb99
+		summarizeBy: sum
+		sourceColumn: core_groups
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_type
+		dataType: string
+		lineageTag: c449f16e-e395-4924-87e9-14647bb23397
+		summarizeBy: none
+		sourceColumn: group_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column cross_section_mm2
+		dataType: double
+		lineageTag: 29f51e9b-4c1b-40d7-bc03-8f0ec309b55e
+		summarizeBy: sum
+		sourceColumn: cross_section_mm2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_conductors
+		dataType: int64
+		formatString: 0
+		lineageTag: a51339bb-341e-4f37-a965-234547125842
+		summarizeBy: sum
+		sourceColumn: total_conductors
+
+		annotation SummarizationSetBy = Automatic
+
+	column copper_area_mm2
+		dataType: double
+		lineageTag: 41aaca7c-46a9-462f-abdd-48e20a84ab10
+		summarizeBy: sum
+		sourceColumn: copper_area_mm2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column individual_screen
+		dataType: string
+		lineageTag: 6f480cf3-f2eb-4066-8d6f-135b3bd3fda0
+		summarizeBy: none
+		sourceColumn: individual_screen
+
+		annotation SummarizationSetBy = Automatic
+
+	column overall_screen
+		dataType: string
+		lineageTag: 48061f76-e44d-477c-a932-2298ae8fb827
+		summarizeBy: none
+		sourceColumn: overall_screen
+
+		annotation SummarizationSetBy = Automatic
+
+	column armor_type
+		dataType: string
+		lineageTag: 9212c930-4719-4ccb-9d37-2d7ec2819dc4
+		summarizeBy: none
+		sourceColumn: armor_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column insulation_material
+		dataType: string
+		lineageTag: 59ac921d-58f0-4983-b86e-027c5e82bf45
+		summarizeBy: none
+		sourceColumn: insulation_material
+
+		annotation SummarizationSetBy = Automatic
+
+	column sheath_material
+		dataType: string
+		lineageTag: 33112c4e-3d89-49d7-bec1-fefc61a7df79
+		summarizeBy: none
+		sourceColumn: sheath_material
+
+		annotation SummarizationSetBy = Automatic
+
+	column fire_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: deb4a77c-38da-469f-a18b-1b8cda86c947
+		summarizeBy: none
+		sourceColumn: fire_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column low_smoke
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: daf6bd3c-33fe-4085-8acb-85c98e9e0231
+		summarizeBy: none
+		sourceColumn: low_smoke
+
+		annotation SummarizationSetBy = Automatic
+
+	column low_toxicity
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ff147cfc-b236-4fb3-ab3d-0cafd8283303
+		summarizeBy: none
+		sourceColumn: low_toxicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column halogen_free
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0a1c7b34-852f-446a-b979-3d4f27e77757
+		summarizeBy: none
+		sourceColumn: halogen_free
+
+		annotation SummarizationSetBy = Automatic
+
+	column cold_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a24dc7bb-d17c-4b87-adec-532e3137fb1b
+		summarizeBy: none
+		sourceColumn: cold_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column uv_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 47aebb98-ac4c-452d-a26f-adccaa9864d7
+		summarizeBy: none
+		sourceColumn: uv_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column oil_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 74819192-49e2-4585-a3e3-10eeb25a3683
+		summarizeBy: none
+		sourceColumn: oil_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_rated_voltage_v
+		dataType: int64
+		formatString: 0
+		lineageTag: 71041cc8-3bcc-4685-aac3-8fbc979071e8
+		summarizeBy: sum
+		sourceColumn: source_rated_voltage_v
+
+		annotation SummarizationSetBy = Automatic
+
+	column prediction_error
+		dataType: double
+		lineageTag: 9bfb7663-2d1a-49ef-b756-76a0703598a6
+		summarizeBy: sum
+		sourceColumn: prediction_error
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column absolute_percentage_error
+		dataType: double
+		lineageTag: 568480a1-1488-4d24-a701-e073a08ca9c9
+		summarizeBy: sum
+		sourceColumn: absolute_percentage_error
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prediction Status Label' =
+			
+			SWITCH(
+			    bi_predictions[prediction_status],
+			    "ok", "Successful",
+			    "insufficient_feature_value_data", "Unsupported Features",
+			    "insufficient_model_data", "Insufficient Model Data",
+			    "incompatible_target_construction", "Incompatible Construction",
+			    bi_predictions[prediction_status]
+			)
+		lineageTag: 1d6c287e-4dbb-4547-8eef-ca19b46fc379
+		summarizeBy: none
+		sortByColumn: 'Prediction Status Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prediction Status Sort' =
+			
+			SWITCH(
+			    bi_predictions[prediction_status],
+			    "ok", 1,
+			    "insufficient_feature_value_data", 2,
+			    "insufficient_model_data", 3,
+			    "incompatible_target_construction", 4,
+			    99
+			)
+		formatString: 0
+		lineageTag: c4f7df68-d2a8-44ca-a020-4779f5517351
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column prediction_run_id
+		dataType: string
+		lineageTag: 945acc35-d5de-4ced-9704-f0234bf0627c
+		summarizeBy: none
+		sourceColumn: prediction_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_dataset_role
+		dataType: string
+		lineageTag: f920f169-2c94-4796-a772-ea7bbb673d6b
+		summarizeBy: none
+		sourceColumn: source_dataset_role
+
+		annotation SummarizationSetBy = Automatic
+
+	column prediction_run_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: e3d7103b-7a4a-462f-9b72-8013df6b8fd7
+		summarizeBy: sum
+		sourceColumn: prediction_run_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current_prediction_run
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8a15afdf-a605-4c64-b4b5-e44962a5a47a
+		summarizeBy: none
+		sourceColumn: is_current_prediction_run
+
+		annotation SummarizationSetBy = Automatic
+
+	column construction_description
+		dataType: string
+		lineageTag: 6697392e-1b9e-4758-920b-e967b6f1710a
+		summarizeBy: none
+		sourceColumn: construction_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_load_run_id
+		dataType: string
+		lineageTag: 30735aff-cb71-4072-83cd-0ff4a52e2f5d
+		summarizeBy: none
+		sourceColumn: source_load_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current_source_load
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8455c8be-49f0-4e51-a259-ed1b32ab0217
+		summarizeBy: none
+		sourceColumn: is_current_source_load
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bi_predictions = m
+		mode: import
+		source =
+				let
+				  Quelle = PostgreSQL.Database("localhost:5432", "cable_intelligence"),
+				  #"Navigation 1" = Quelle{[Schema = "public", Item = "bi_predictions"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

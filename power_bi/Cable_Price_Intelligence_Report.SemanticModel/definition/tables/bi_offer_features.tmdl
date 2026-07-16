@@ -1,0 +1,439 @@
+table bi_offer_features
+	lineageTag: 8dbbf752-f456-4f25-842f-ca3307cb5b8b
+
+	column offer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1622cce9-8563-4f58-901e-350f4fbce9cb
+		summarizeBy: none
+		sourceColumn: offer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column dataset_role
+		dataType: string
+		lineageTag: 78949d37-cc14-43c6-ad28-35ecd93a98be
+		summarizeBy: none
+		sourceColumn: dataset_role
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_dataset
+		dataType: string
+		lineageTag: 00714052-47ed-4216-b6be-04789948ddad
+		summarizeBy: none
+		sourceColumn: source_dataset
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_row_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d754457-921b-4cdd-884f-a8701704fbb9
+		summarizeBy: sum
+		sourceColumn: source_row_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		lineageTag: 2405afbf-28bc-4446-b37f-e531c310fec0
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_number
+		dataType: string
+		lineageTag: 2bcfb9e2-a2e4-4e1d-8176-fea8d46f507b
+		summarizeBy: none
+		sourceColumn: invoice_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_date_raw
+		dataType: string
+		lineageTag: 152c0e06-684f-47f3-bb38-aef87a1ec3b8
+		summarizeBy: none
+		sourceColumn: invoice_date_raw
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5e047796-b542-4d0b-b4fc-4d7cc29d64ef
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column product_description
+		dataType: string
+		lineageTag: 3c624c42-bd1d-46b3-b4f5-454841d5d90b
+		summarizeBy: none
+		sourceColumn: product_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column length_km
+		dataType: double
+		lineageTag: 12c7a722-346f-4a78-964f-645a9bd9b03f
+		summarizeBy: sum
+		sourceColumn: length_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit_price_excl_vat
+		dataType: double
+		lineageTag: ff2dc30d-27f2-4eff-b1bf-3bf67cdfadb5
+		summarizeBy: sum
+		sourceColumn: unit_price_excl_vat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column comment
+		dataType: string
+		lineageTag: c11d80bb-2f23-44c0-b31f-55c40c8ed627
+		summarizeBy: none
+		sourceColumn: comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column offer_created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8219d98a-7f46-4773-93db-08a5fc15aace
+		summarizeBy: none
+		sourceColumn: offer_created_at
+
+		variation Variation
+			isDefault
+			relationship: 66877d31-2cc7-4a0a-9a75-46c331d48e78
+			defaultHierarchy: LocalDateTable_d2eeb852-1793-42f5-b443-8d0d64c87060.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+	column ucm_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5030ea61-4d46-49bc-87ec-e16c0f761734
+		summarizeBy: sum
+		sourceColumn: ucm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cable_family
+		dataType: string
+		lineageTag: 6a642394-f1a5-45f3-8cc1-c9595c406056
+		summarizeBy: none
+		sourceColumn: cable_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column core_groups
+		dataType: int64
+		formatString: 0
+		lineageTag: 85e4ceb4-3780-413e-a6ab-f5abb930f8da
+		summarizeBy: sum
+		sourceColumn: core_groups
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_type
+		dataType: string
+		lineageTag: 2f0b836a-3a2f-4153-ab0d-0afb8a412839
+		summarizeBy: none
+		sourceColumn: group_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column cross_section_mm2
+		dataType: double
+		lineageTag: d57b7805-7b08-4926-9c93-91a8e7c49bf7
+		summarizeBy: sum
+		sourceColumn: cross_section_mm2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cross_section_designation
+		dataType: string
+		lineageTag: e1de941b-3258-4505-86c4-27b19c75118b
+		summarizeBy: none
+		sourceColumn: cross_section_designation
+
+		annotation SummarizationSetBy = Automatic
+
+	column conductor_flexibility_class
+		dataType: int64
+		formatString: 0
+		lineageTag: 80d6edfa-68e1-4c0a-a632-8f506dc55bbc
+		summarizeBy: sum
+		sourceColumn: conductor_flexibility_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column conductor_material
+		dataType: string
+		lineageTag: 840321ab-706b-4fc5-b2c3-94d98e263f6e
+		summarizeBy: none
+		sourceColumn: conductor_material
+
+		annotation SummarizationSetBy = Automatic
+
+	column insulation_material
+		dataType: string
+		lineageTag: 024f8856-c5ca-4446-9d82-9fa3d2dbbcc0
+		summarizeBy: none
+		sourceColumn: insulation_material
+
+		annotation SummarizationSetBy = Automatic
+
+	column mica_tape_layers
+		dataType: int64
+		formatString: 0
+		lineageTag: abadb3fa-b13d-43af-b712-54362d574539
+		summarizeBy: sum
+		sourceColumn: mica_tape_layers
+
+		annotation SummarizationSetBy = Automatic
+
+	column individual_screen
+		dataType: string
+		lineageTag: 30b3844f-40e7-42c4-83b9-9167450f07ae
+		summarizeBy: none
+		sourceColumn: individual_screen
+
+		annotation SummarizationSetBy = Automatic
+
+	column filler_material
+		dataType: string
+		lineageTag: afbec789-1fa9-4dd4-9930-d3b7bdaa3214
+		summarizeBy: none
+		sourceColumn: filler_material
+
+		annotation SummarizationSetBy = Automatic
+
+	column bedding_under_screen
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 42a52aed-7c61-45fc-96ac-2a6129fec1a5
+		summarizeBy: none
+		sourceColumn: bedding_under_screen
+
+		annotation SummarizationSetBy = Automatic
+
+	column overall_screen
+		dataType: string
+		lineageTag: 1eae3ec8-7970-42cc-973a-4e746a1aca8f
+		summarizeBy: none
+		sourceColumn: overall_screen
+
+		annotation SummarizationSetBy = Automatic
+
+	column sheath_material
+		dataType: string
+		lineageTag: 3e1e7188-ac85-4cf1-91ab-ff50f98bf1ac
+		summarizeBy: none
+		sourceColumn: sheath_material
+
+		annotation SummarizationSetBy = Automatic
+
+	column armor_type
+		dataType: string
+		lineageTag: fd889fae-12cd-460e-9fed-5069da3ff799
+		summarizeBy: none
+		sourceColumn: armor_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column water_blocking
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4500a32a-31d3-4258-ac61-deab510c7004
+		summarizeBy: none
+		sourceColumn: water_blocking
+
+		annotation SummarizationSetBy = Automatic
+
+	column flame_retardant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cba016f6-e484-45e5-92d6-af389eda9c83
+		summarizeBy: none
+		sourceColumn: flame_retardant
+
+		annotation SummarizationSetBy = Automatic
+
+	column fire_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 32c070d7-7140-4873-9a86-61c172e8547e
+		summarizeBy: none
+		sourceColumn: fire_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column low_smoke
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7350662e-2013-4b17-aa3e-ccd7dc084f24
+		summarizeBy: none
+		sourceColumn: low_smoke
+
+		annotation SummarizationSetBy = Automatic
+
+	column low_toxicity
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7955331a-6a43-4f2a-bb2f-5d3ea8090116
+		summarizeBy: none
+		sourceColumn: low_toxicity
+
+		annotation SummarizationSetBy = Automatic
+
+	column halogen_free
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f3303305-f3f8-471c-bb0b-2ae89058c764
+		summarizeBy: none
+		sourceColumn: halogen_free
+
+		annotation SummarizationSetBy = Automatic
+
+	column cold_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f7e4b33b-fa31-4619-a432-0d23a616ec71
+		summarizeBy: none
+		sourceColumn: cold_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column uv_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a54e84d2-5b1e-48a3-a946-0c206b1d4653
+		summarizeBy: none
+		sourceColumn: uv_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column oil_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 78922ffd-25c4-4943-9bca-04e6a9172ecc
+		summarizeBy: none
+		sourceColumn: oil_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column chemical_resistant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0c7b065d-6817-4e03-851e-1dcffd2b06fe
+		summarizeBy: none
+		sourceColumn: chemical_resistant
+
+		annotation SummarizationSetBy = Automatic
+
+	column rated_voltage_v
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b4b84eb-4edb-45e5-8aa7-8c7990855b5c
+		summarizeBy: sum
+		sourceColumn: rated_voltage_v
+
+		annotation SummarizationSetBy = Automatic
+
+	column intrinsically_safe
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 51567a86-1198-4a9c-86df-c70c9d8ada4c
+		summarizeBy: none
+		sourceColumn: intrinsically_safe
+
+		annotation SummarizationSetBy = Automatic
+
+	column explosive_area_application
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d433afa0-ee21-4df5-85c0-00853f8f9c84
+		summarizeBy: none
+		sourceColumn: explosive_area_application
+
+		annotation SummarizationSetBy = Automatic
+
+	column sheath_color
+		dataType: string
+		lineageTag: 4f5e1866-2509-4c0b-9386-497ba3387ac6
+		summarizeBy: none
+		sourceColumn: sheath_color
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_conductors
+		dataType: int64
+		formatString: 0
+		lineageTag: 52e5ec22-a81d-4140-a8cf-19f1fc7cdced
+		summarizeBy: sum
+		sourceColumn: total_conductors
+
+		annotation SummarizationSetBy = Automatic
+
+	column copper_area_mm2
+		dataType: double
+		lineageTag: 1703f76d-79a3-4bef-922c-14b9f6a2fb23
+		summarizeBy: sum
+		sourceColumn: copper_area_mm2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_per_copper_mm2
+		dataType: double
+		lineageTag: eb5ae76a-dc2f-4d43-867a-76f86a407811
+		summarizeBy: sum
+		sourceColumn: price_per_copper_mm2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column load_run_id
+		dataType: string
+		lineageTag: c576edb4-3b1f-4336-88bc-702dd4794625
+		summarizeBy: none
+		sourceColumn: load_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current_load
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 090a9c8b-1de4-4098-8ea8-5712553c7745
+		summarizeBy: none
+		sourceColumn: is_current_load
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bi_offer_features = m
+		mode: import
+		source =
+				let
+				  Quelle = PostgreSQL.Database("localhost:5432", "cable_intelligence"),
+				  #"Navigation 1" = Quelle{[Schema = "public", Item = "bi_offer_features"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

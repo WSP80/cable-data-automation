@@ -1,0 +1,8 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Cable_Price_Intelligence_Report.SemanticModel"
+    }
+  }
+}

@@ -1,0 +1,274 @@
+table _Measures
+	lineageTag: 63f1cdd8-896d-4e5f-84ca-95d835d6d7ad
+
+	measure 'Total Offers' = ```
+			
+			DISTINCTCOUNT(bi_offer_features[offer_id])
+			
+			```
+		formatString: 0
+		lineageTag: 83be5a23-b76a-4b5f-8eeb-30dd0e3c6d7c
+
+	measure 'Training Offers' = ```
+			
+			CALCULATE(
+			    [Total Offers],
+			    bi_offer_features[dataset_role] = "training"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f432c73c-24f6-4120-9fa1-cad4acdd555f
+
+	measure 'Priced Offers' = ```
+			
+			CALCULATE(
+			    [Total Offers],
+			    NOT ISBLANK(bi_offer_features[unit_price_excl_vat])
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 5a24bd05-b2a3-44e0-a54e-0bb51d6d2964
+
+	measure 'Average Actual Price' =
+			
+			AVERAGE(bi_offer_features[unit_price_excl_vat])
+		lineageTag: 3264d3a7-fe84-419f-8c8f-0a9a9c55067e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Median Actual Price' =
+			
+			MEDIAN(bi_offer_features[unit_price_excl_vat])
+		lineageTag: d8abd8eb-4cd2-4649-81ac-ba1ae950b98f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Price per Copper mm2' =
+			
+			AVERAGE(bi_offer_features[price_per_copper_mm2])
+		lineageTag: ab56d857-b747-4e3f-b2f1-04b755bf0f19
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Active Models' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(bi_model_runs[cable_family]),
+			    bi_model_runs[is_active] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 1cb84999-8075-48d9-9b1b-ca35008e060f
+
+	measure 'Average Active Model MAPE' =
+			
+			CALCULATE(
+			    AVERAGE(bi_model_runs[mape]),
+			    bi_model_runs[is_active] = TRUE()
+			)
+		lineageTag: 55f9ffb3-c555-42a5-a60a-d3bccba55b7d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Active Model MAE' =
+			
+			CALCULATE(
+			    AVERAGE(bi_model_runs[mae]),
+			    bi_model_runs[is_active] = TRUE()
+			)
+		lineageTag: f84df235-159e-40f3-90a1-626a0bac8ad8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Active Model R2' =
+			
+			CALCULATE(
+			    AVERAGE(bi_model_runs[r2]),
+			    bi_model_runs[is_active] = TRUE()
+			)
+		lineageTag: 0c33f4ed-d0c1-4831-bfee-3d3e357ae31d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Predictions' =
+			
+			COUNTROWS(bi_predictions)
+		formatString: 0
+		lineageTag: 1f2feffa-f475-4e65-9dca-7b1f98fcff29
+
+	measure 'Successful Predictions' = ```
+			
+			CALCULATE(
+			    [Total Predictions],
+			    bi_predictions[prediction_status] = "ok"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 87868c24-bb95-402a-8930-8c04c7dfc827
+
+	measure 'Prediction Success Rate' =
+			
+			DIVIDE(
+			    [Successful Predictions],
+			    [Total Predictions]
+			)
+		lineageTag: 669d596d-4f6a-4ee7-83d3-a0cf0afa6335
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Compatible Predictions' = ```
+			
+			CALCULATE(
+			    [Total Predictions],
+			    bi_predictions[construction_compatible] = TRUE()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a86d50d1-6444-4f49-b5a1-a9187b23b8db
+
+	measure 'Average Predicted Price' = ```
+			
+			AVERAGE(bi_predictions[predicted_price])
+			
+			```
+		lineageTag: 8441f209-621d-4d1b-83fc-a1e25a089483
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Prediction Error' = ```
+			
+			AVERAGE(bi_predictions[prediction_error])
+			
+			```
+		lineageTag: 2da03aff-50ee-4ee8-9a5d-8851052132a2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Production MAPE' = ```
+			
+			100 * AVERAGE(bi_predictions[absolute_percentage_error])
+			
+			```
+		lineageTag: 54b957a3-f9d4-4a85-82b4-4834e0ab1a9d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Voltage Equivalence Uses' = ```
+			
+			CALCULATE(
+			    [Total Predictions],
+			    bi_predictions[voltage_equivalence_applied] = TRUE()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a627b7f2-fd47-4eba-9ed8-9d871cea78de
+
+	measure 'Cable Families' =
+			
+			DISTINCTCOUNT(bi_offer_features[cable_family])
+		formatString: 0
+		lineageTag: 53d172a1-0189-4c76-9c52-036a4002f117
+
+	measure 'Training Coverage Color' =
+			
+			VAR RowsCount = [Training Offers]
+			RETURN
+			    IF(
+			        ISBLANK(RowsCount) || RowsCount < 100,
+			        "#E15759",
+			        "#2F66E8"
+			    )
+		lineageTag: 33e451d8-867b-4888-a52b-dd66d7da8d89
+
+	measure 'Current Run Source Offers' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(bi_predictions[offer_id]),
+			    bi_predictions[prediction_run_rank] = 1,
+			    REMOVEFILTERS(bi_offer_features[dataset_role])
+			)
+		formatString: 0
+		lineageTag: 189bc635-a06c-4bed-9a51-dbb6b04e1508
+
+	measure 'Current Run Predictions' =
+			
+			CALCULATE(
+			    COUNTROWS(bi_predictions),
+			    bi_predictions[prediction_run_rank] = 1,
+			    REMOVEFILTERS(bi_offer_features[dataset_role])
+			)
+		formatString: 0
+		lineageTag: 111dc384-bf3f-42aa-b486-2db540ec0e54
+
+	measure 'Current Run Successful Predictions' =
+			
+			CALCULATE(
+			    COUNTROWS(bi_predictions),
+			    bi_predictions[prediction_run_rank] = 1,
+			    bi_predictions[prediction_status] = "ok",
+			    REMOVEFILTERS(bi_offer_features[dataset_role])
+			)
+		formatString: 0
+		lineageTag: 7224258a-a1ed-4e47-8627-7b3e51189996
+
+	measure 'Current Run Prediction Success Rate' =
+			
+			DIVIDE(
+			    [Current Run Successful Predictions],
+			    [Current Run Predictions]
+			)
+		lineageTag: dad2a24a-003b-4625-9377-934aa720dd36
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Current Run Compatible Predictions' =
+			
+			CALCULATE(
+			    COUNTROWS(bi_predictions),
+			    bi_predictions[prediction_run_rank] = 1,
+			    bi_predictions[construction_compatible] = TRUE(),
+			    REMOVEFILTERS(bi_offer_features[dataset_role])
+			)
+		formatString: 0
+		lineageTag: 8bd4591b-4aaa-4871-a132-29d8e6bd9378
+
+	measure 'Current Run Average Predicted Price' =
+			
+			CALCULATE(
+			    AVERAGE(bi_predictions[predicted_price]),
+			    bi_predictions[prediction_run_rank] = 1,
+			    REMOVEFILTERS(bi_offer_features[dataset_role])
+			)
+		lineageTag: 9f7c3b0d-772a-402d-8443-880af88c6829
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Spalte1
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3b9a6845-aafe-4898-a69c-f72033b23ce9
+		summarizeBy: sum
+		sourceColumn: Spalte1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				  Quelle = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Spalte1 = _t]),
+				  #"Geänderter Spaltentyp" = Table.TransformColumnTypes(Quelle, {{"Spalte1", Int64.Type}}, "de")
+				in
+				  #"Geänderter Spaltentyp"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
