@@ -59,3 +59,7 @@ data/database/
 reports/tables/
 reports/*.log
 .env
+
+# Local presentation notes
+presentation/PowerShell.txt
+presentation/Text.txt
